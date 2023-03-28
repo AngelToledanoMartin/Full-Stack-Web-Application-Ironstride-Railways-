@@ -21,7 +21,7 @@ export default function Appbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h5"  style={{fontWeight: "bold"}} component="div" sx={{ flexGrow: 1 }}>
              Ironstride Railways
           </Typography>
           <Button color="inherit">Login</Button>
