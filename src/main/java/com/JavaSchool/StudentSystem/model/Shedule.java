@@ -56,7 +56,7 @@ public class Shedule {
                 this.id_train = id_train;
         }
 
-        public java.sql.Timestamp date_start() {
+        public java.sql.Timestamp getDate_start() {
                 return date_start;
         }
 

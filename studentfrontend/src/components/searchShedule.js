@@ -28,15 +28,15 @@ export default function SearchShedule() {
     const search = { Station };
     console.log(search);
     const test = 'http://localhost:8080/stationShedule/search?filter='+Station;
+    const url = `http://localhost:8080/stationShedule/search?filter=${Station}`
     console.log(test);
-    fetch('http://localhost:8080/stationShedule/search?filter='+Station)
-      .then(() => {
-        console.log("New search")
-      })
-      .then((res) => res.json())
+    fetch(url)
+      
+      .then( res => res.json())
       .then((result) => {
         setShedule(result);
       });
+      
   };  
   /*
   useEffect(() => {
@@ -124,19 +124,19 @@ export default function SearchShedule() {
           <Paper
             elevation={3}
             style={{ margin: "10px", padding: "15px", textAlign: "left" }}
-            key={shedule.idShedule}
-          >
-            id: {shedule.idShedule}
+            key={shedule.id_shedule}
+          >	
+            id: {shedule.id_shedule}
             <br />
-            idStationStart: {shedule.idStationStart}
+            idStationStart: {shedule.id_station_start}
             <br />
-            idStationEnd: {shedule.idStationEnd}
+            idStationEnd: {shedule.id_station_end}
             <br />
-            dateStart: {shedule.dateStart}
+            dateStart: {shedule.date_start}
             <br />
-            dateEnd: {shedule.dateEnd}
+            dateEnd: {shedule.date_end}
             <br />
-            idTrain: {shedule.idTrain}
+            idTrain: {shedule.id_train}
             <br />
           </Paper>
         ))}

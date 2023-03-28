@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Paper, Button } from "@mui/material";
 
-
 export default function Station() {
   const paperStyle = {
     padding: "30px 30px",
@@ -49,8 +48,12 @@ export default function Station() {
       autoComplete="off"
     >
       <Paper elevation={3} style={paperStyle}>
+        <h1 className="passengerTitle" style={{color: "#3295a8"}}>- FOR EMPLOYEES -</h1>
+      </Paper>
+
+      <Paper elevation={3} style={paperStyle}>
         <h2 className="passengerTitle">Add a station</h2>
-        
+
         <TextField
           id="outlined-basic"
           label="Name"
@@ -60,25 +63,27 @@ export default function Station() {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-      
+
         <Button variant="contained" style={buttons} onClick={handleClick}>
           Submit
         </Button>
       </Paper>
 
-      
       <Paper elevation={3} style={paperStyle}>
-      <h2 className="passengerTitle">Stations</h2>
-        {stations.map(station=>(
-        <Paper elevation={3} style={{margin:"10px",padding:"15px",textAlign:"left"}} key={station.id_station}>
-          id: {station.id_station}<br/>
-          Name: {station.name}<br/>
-
-        </Paper>
+        <h2 className="passengerTitle">Stations</h2>
+        {stations.map((station) => (
+          <Paper
+            elevation={3}
+            style={{ margin: "10px", padding: "15px", textAlign: "left" }}
+            key={station.id_station}
+          >
+            id: {station.id_station}
+            <br />
+            Name: {station.name}
+            <br />
+          </Paper>
         ))}
-
       </Paper>
-
     </Box>
   );
 }
