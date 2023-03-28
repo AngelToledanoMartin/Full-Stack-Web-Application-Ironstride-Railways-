@@ -16,7 +16,7 @@ public class Passenger {
         private int idpassenger;
         private String name;
         private String surname;
-        private  java.sql.Date birthday;
+        private java.sql.Date birthday;
 
         public Passenger() {
 

@@ -10,27 +10,31 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.JavaSchool.StudentSystem.model.Passenger;
-import com.JavaSchool.StudentSystem.service.PassengerService;
+import com.JavaSchool.StudentSystem.model.Station;
+import com.JavaSchool.StudentSystem.service.StationService;
 
 @RestController
-@RequestMapping("/passenger")
+@RequestMapping("/station")
 @CrossOrigin
 
-public class PassengerController {
+public class StationController {
 
     @Autowired
-    private PassengerService passengerService;
+    private StationService stationService;
 
     @PostMapping("/add")
-    public String add(@RequestBody Passenger passenger) {
-        passengerService.savePassenger(passenger);
-        return "New passenger is added";
+    public String add(@RequestBody Station station) {
+        try{
+            stationService.saveStation(station);
+            return "New station is added";
+        }catch(Exception e){
+            return "Ha habido un error: " + e.getMessage();
+        }
     }
 
     @GetMapping("/getAll")
-    public List<Passenger> getAllPassenger() {
-        return passengerService.getAllPassengers();
+    public List<Station> getAllStation() {
+        return stationService.getAllStation();
     }
 
 }

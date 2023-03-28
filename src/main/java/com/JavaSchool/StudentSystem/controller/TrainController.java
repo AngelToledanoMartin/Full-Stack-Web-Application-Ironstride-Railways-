@@ -10,27 +10,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.JavaSchool.StudentSystem.model.Passenger;
-import com.JavaSchool.StudentSystem.service.PassengerService;
+import com.JavaSchool.StudentSystem.model.Train;
+import com.JavaSchool.StudentSystem.service.TrainService;
 
 @RestController
-@RequestMapping("/passenger")
+@RequestMapping("/train")
 @CrossOrigin
 
-public class PassengerController {
+public class TrainController {
 
     @Autowired
-    private PassengerService passengerService;
+    private TrainService trainService;
 
     @PostMapping("/add")
-    public String add(@RequestBody Passenger passenger) {
-        passengerService.savePassenger(passenger);
-        return "New passenger is added";
+    public String add(@RequestBody Train train) {
+        trainService.saveTrain(train);
+        return "New train is added";
     }
 
     @GetMapping("/getAll")
-    public List<Passenger> getAllPassenger() {
-        return passengerService.getAllPassengers();
+    public List<Train> getAllTrain() {
+        return trainService.getAllTrain();
     }
 
 }

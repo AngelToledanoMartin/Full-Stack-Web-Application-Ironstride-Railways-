@@ -1,0 +1,16 @@
+.Box-form{
+    margin:"auto auto 500px auto";
+}
+body {
+    background-color:"red";
+}
+.paperStyle{
+    padding:"30px 30px";
+    width:600; 
+    margin:"40px auto";
+}
+.passengerTitle{
+    margin:"auto auto 10px auto";
+    font-weight: "bold";
+    font-size: "1em";
+}
