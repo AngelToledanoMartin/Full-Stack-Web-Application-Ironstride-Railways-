@@ -87,10 +87,13 @@ export default function Passenger() {
           value={birthday}
           onChange={(e) => setbirthday(e.target.value)}
         />
-
+    {
+        /*
         <LocalizationProvider dateAdapter={AdapterDayjs} style={Date} >
           <DatePicker  value={birthday} onChange={(e) => setbirthday(e.target.value)}/>
         </LocalizationProvider>
+        */
+    }
 
         <Button variant="contained" style={buttons} onClick={handleClick}>
           Submit

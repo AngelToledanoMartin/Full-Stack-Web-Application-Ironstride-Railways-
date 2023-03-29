@@ -35,8 +35,6 @@ public class StationSheduleServiceImpl implements StationSheduleService {
         Instant instant2 = Instant.parse(timestampString2).truncatedTo(ChronoUnit.SECONDS);
         java.sql.Timestamp dateBb = java.sql.Timestamp.valueOf(instant2.toString());
 
-        String prueba="dsds";
-        System.out.println(prueba);
         System.out.println(dateAa);
         System.out.println(dateBb);
         //java.sql.Timestamp dateAa = java.sql.Timestamp.valueOf(dateB); 
