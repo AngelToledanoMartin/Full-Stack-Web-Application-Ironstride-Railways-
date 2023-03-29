@@ -22,4 +22,9 @@ public interface SheduleRepository extends JpaRepository<Shedule, Integer> {
             value = "SELECT * FROM shedule WHERE id_station_start = :filter", nativeQuery = true)
     List<Shedule> search(@Param("filter") String filter);
 
+
+    //to search a train from station a to station b between a date
+    @Query(value = "SELECT id_train, id_shedule FROM shedule WHERE id_station_start = :stationA AND  id_station_end = :stationB AND date_start BETWEEN ':dateA' AND ':dateB'", nativeQuery = true)
+    List<Shedule> searchTrains(@Param("stationA") int stationA, @Param("stationB") int stationB, @Param("dateA") java.sql.Timestamp dateA, @Param("dateB") java.sql.Timestamp dateB);
+
 }

@@ -1,4 +1,4 @@
-import "./css/passenger.css";
+//import "./css/passenger.css";
 import React, { useEffect,useState } from "react";
 import Box from "@mui/material/Box";
 
@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
-export default function SearchShedule() {
+export default function SearchSchedule() {
   const paperStyle = {
     padding: "30px 30px",
     width: 600,
@@ -31,22 +31,13 @@ export default function SearchShedule() {
     const url = `http://localhost:8080/stationShedule/search?filter=${Station}`
     console.log(test);
     fetch(url)
-      
       .then( res => res.json())
       .then((result) => {
         setShedule(result);
       });
       
   };  
-  /*
-  useEffect(() => {
-    fetch("http://localhost:8080//")
-      .then((res) => res.json())
-      .then((result) => {
-        setShedule(result);
-      });
-  }, []);
-  */
+ 
 
   useEffect(() => {
     fetch("http://localhost:8080/station/getAll")
@@ -66,7 +57,7 @@ export default function SearchShedule() {
       autoComplete="off"
     >
       <Paper elevation={3} style={paperStyle}>
-        <h2 className="passengerTitle">Search a shedule's Station</h2>
+        <h2 className="passengerTitle">Search a schedule's Station</h2>
 
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">
@@ -119,7 +110,7 @@ export default function SearchShedule() {
       </Paper>
 
       <Paper elevation={3} style={paperStyle}>
-        <h2 className="passengerTitle">Shedule</h2>
+        <h2 className="passengerTitle">Schedule</h2>
         {shedule.map((shedule) => (
           <Paper
             elevation={3}

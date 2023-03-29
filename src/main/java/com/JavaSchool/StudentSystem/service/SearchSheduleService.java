@@ -6,4 +6,6 @@ import com.JavaSchool.StudentSystem.model.Shedule;
 
 public interface SearchSheduleService {
     public List<Shedule> getAllShedule();
+    
+
 }

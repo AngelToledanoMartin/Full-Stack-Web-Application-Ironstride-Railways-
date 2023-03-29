@@ -4,14 +4,15 @@ import Passenger from "./components/passenger.js";
 import Train from "./components/train";
 import Station from "./components/station";
 import SearchTrains from "./components/searchTrains";
-import SearchShedule from "./components/searchShedule";
+import SearchSchedule from "./components/searchSchedule";
 
 function App() {
   return (
     <div className="App">
       <Appbar />
+      <SearchTrains/>
       <Passenger />
-      <SearchShedule />
+      <SearchSchedule />
       {
         // Employees
       }

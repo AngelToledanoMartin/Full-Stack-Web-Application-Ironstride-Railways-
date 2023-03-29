@@ -28,7 +28,7 @@ public class StationController {
             stationService.saveStation(station);
             return "New station is added";
         }catch(Exception e){
-            return "Ha habido un error: " + e.getMessage();
+            return "error: " + e.getMessage();
         }
     }
 

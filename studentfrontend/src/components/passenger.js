@@ -1,4 +1,4 @@
-import "./css/passenger.css";
+import "./css/passenger.module.css";
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -30,6 +30,7 @@ export default function Passenger() {
     e.preventDefault();
     const passenger = { name, surname, birthday };
     console.log(passenger);
+    console.log(birthday);
     fetch("http://localhost:8080/passenger/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -76,6 +77,7 @@ export default function Passenger() {
           value={surname}
           onChange={(e) => setSurname(e.target.value)}
         />
+        
         <TextField
           id="outlined-basic"
           label="Birthday"
@@ -86,8 +88,8 @@ export default function Passenger() {
           onChange={(e) => setbirthday(e.target.value)}
         />
 
-        <LocalizationProvider dateAdapter={AdapterDayjs} style={Date}>
-          <DatePicker />
+        <LocalizationProvider dateAdapter={AdapterDayjs} style={Date} >
+          <DatePicker  value={birthday} onChange={(e) => setbirthday(e.target.value)}/>
         </LocalizationProvider>
 
         <Button variant="contained" style={buttons} onClick={handleClick}>

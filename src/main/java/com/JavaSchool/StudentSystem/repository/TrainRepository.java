@@ -9,4 +9,5 @@ import com.JavaSchool.StudentSystem.model.Train;
 
 public interface TrainRepository extends JpaRepository<Train, Integer> {
 
+    
 }

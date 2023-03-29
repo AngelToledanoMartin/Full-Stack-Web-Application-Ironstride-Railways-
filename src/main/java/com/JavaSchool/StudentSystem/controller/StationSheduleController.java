@@ -26,12 +26,7 @@ public class StationSheduleController {
     @Autowired
     private StationSheduleService stationSheduleService;
 
-/* 
-    @GetMapping("/search")
-    public List<Shedule> getAllShedule() {
-        return stationSheduleService.getAllShedule(@RequestParam String variable1);
-    }
-    */
+
     
     @GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filter){
@@ -42,18 +37,16 @@ public class StationSheduleController {
 
         }
     }
-    
-}
-    /* 
-    @GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filter){
+
+    @GetMapping("/searchTrain")
+    public ResponseEntity<?> searchTrains(@RequestParam int stationA, @RequestParam int stationB, @RequestParam String dateA, @RequestParam String dateB){
         try{
-            return ResponseEntity.status(HttpStatus.OK).body(stationSheduleService.search(filter));
+            return ResponseEntity.status(HttpStatus.OK).body(stationSheduleService.searchTrains(stationA, stationB, dateA, dateB));
         }catch(Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\""+ e.getMessage()+ "\"}"));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\":\""+ e.getMessage()+"\"}"));
 
         }
     }
     
 }
-*/
+ 

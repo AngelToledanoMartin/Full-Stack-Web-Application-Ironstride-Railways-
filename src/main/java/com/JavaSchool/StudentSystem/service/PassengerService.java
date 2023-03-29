@@ -7,4 +7,5 @@ import com.JavaSchool.StudentSystem.model.Passenger;
 public interface PassengerService {
     public Passenger savePassenger(Passenger passenger);
     public List<Passenger> getAllPassengers();
+    public List<Passenger> passengerTrain(int filterIdShedule);
 }

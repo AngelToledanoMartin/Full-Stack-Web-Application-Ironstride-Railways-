@@ -24,5 +24,10 @@ public class PassengerServiceImpl implements PassengerService {
         return passengerRepository.findAll();
     }
 
-    
+    @Override
+    public List<Passenger> passengerTrain(int filterIdShedule) {
+        List<Passenger> passengers = passengerRepository.passengerTrain(filterIdShedule);
+        return passengers;
+    }
+
 }

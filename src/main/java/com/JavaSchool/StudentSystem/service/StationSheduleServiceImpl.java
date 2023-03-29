@@ -1,12 +1,11 @@
 package com.JavaSchool.StudentSystem.service;
 
+
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
-
 import com.JavaSchool.StudentSystem.model.Shedule;
 import com.JavaSchool.StudentSystem.repository.SheduleRepository;
 
@@ -17,21 +16,6 @@ public class StationSheduleServiceImpl implements StationSheduleService {
     @Autowired
     private SheduleRepository sheduleRepository;
   
-/* 
-    @Query(
-            // dudas: si en stationrepository solo accedo a la clase "shedule" como hago
-            // inner join a "station"
-            value = "SELECT * FROM shedule INNER JOIN station ON station.id_station = shedule.id_StationStart WHERE station.name = :variable1", 
-            nativeQuery = true)
-
-    @Override
-    public List<Shedule> getAllShedule(@Param("variable1") String variable1) {
-        // dudas: no puede ser findall es un metodo que me devulve todo, yo quiero que
-        // me devuelva el resultado de la query
-        return sheduleRepository.findAll();
-    }
-*/
-
 
     @Override
     public List<Shedule> search(String filter) {
@@ -39,6 +23,28 @@ public class StationSheduleServiceImpl implements StationSheduleService {
         return shedules;
     }
 
+    public List<Shedule> searchTrains(int stationA, int stationB, String dateA, String dateB){
+
+      
+
+        String timestampString = dateA;
+        Instant instant = Instant.parse(timestampString).truncatedTo(ChronoUnit.SECONDS);
+        java.sql.Timestamp dateAa = java.sql.Timestamp.valueOf(instant.toString());
+
+        String timestampString2 = dateB;
+        Instant instant2 = Instant.parse(timestampString2).truncatedTo(ChronoUnit.SECONDS);
+        java.sql.Timestamp dateBb = java.sql.Timestamp.valueOf(instant2.toString());
+
+        String prueba="dsds";
+        System.out.println(prueba);
+        System.out.println(dateAa);
+        System.out.println(dateBb);
+        //java.sql.Timestamp dateAa = java.sql.Timestamp.valueOf(dateB); 
+        //java.sql.Timestamp dateBb = java.sql.Timestamp.valueOf(dateB);
+
+        List<Shedule> shedules = sheduleRepository.searchTrains(stationA, stationB, dateAa, dateBb);
+        return shedules;
+    }
     
 
 }
